@@ -1,24 +1,5 @@
 ###############################################
-# Stage 1 — Build latest Jellyfin Web
-###############################################
-FROM node:lts-alpine AS build-web
-
-RUN apk add --no-cache \
-    git \
-    python3 \
-    make \
-    g++
-
-# Clone latest stable Jellyfin Web
-RUN git clone --depth 1 --branch master https://github.com/jellyfin/jellyfin-web.git /src
-
-WORKDIR /src
-
-RUN npm ci && npm run build:production
-
-
-###############################################
-# Stage 2 — Final Jellyfin Runtime (Alpine Edge)
+# Stage 1 — Jellyfin (Alpine Edge)
 ###############################################
 FROM alpine:edge
 
@@ -29,9 +10,14 @@ RUN printf "%s\n" \
   "https://dl-cdn.alpinelinux.org/alpine/edge/testing" \
   > /etc/apk/repositories
 
-# Install Jellyfin + hardware support
-RUN apk update && apk add --no-cache \
+# Install Jellyfin + web + hardware support 
+# /usr/share/jellyfin/web is to prevent jellyfin post install fail
+# /usr/lib/jellyfin/jellyfin-web is to run the site
+RUN mkdir -p /usr/share/jellyfin/web \
+    && mkdir -p /usr/lib/jellyfin/jellyfin-web \
+    && apk update && apk add --no-cache \
     jellyfin \
+    jellyfin-web \
     ffmpeg \
     intel-media-driver \
     libva \
@@ -40,7 +26,9 @@ RUN apk update && apk add --no-cache \
     tzdata \
     bash \
     ca-certificates \
-    pciutils
+    pciutils \
+    && cp -r /usr/share/webapps/jellyfin-web/* /usr/share/jellyfin/web/ \
+    && cp -r /usr/share/webapps/jellyfin-web/* /usr/lib/jellyfin/jellyfin-web/
 
 ###############################################
 # Create writable directories for ANY runtime user
@@ -57,11 +45,6 @@ ENV LIBVA_DRIVERS_PATH=/usr/lib/dri
 
 ENV NVIDIA_VISIBLE_DEVICES=all
 ENV NVIDIA_DRIVER_CAPABILITIES=compute,video,utility
-
-###############################################
-# Install Jellyfin Web
-###############################################
-COPY --from=build-web /src/dist /usr/lib/jellyfin/jellyfin-web
 
 ###############################################
 # Drop root — runtime user comes from --user
