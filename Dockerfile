@@ -27,7 +27,6 @@ RUN mkdir -p /usr/share/jellyfin/web \
     bash \
     ca-certificates \
     pciutils \
-    && cp -r /usr/share/webapps/jellyfin-web/* /usr/share/jellyfin/web/ \
     && cp -r /usr/share/webapps/jellyfin-web/* /usr/lib/jellyfin/jellyfin-web/
 
 ###############################################
