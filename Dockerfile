@@ -46,12 +46,8 @@ RUN mkdir -p /config /cache && \
 ###############################################
 
 ENV LIBVA_DRIVER_NAME=iHD
-#ENV LIBVA_DRIVER_NAME=nouveau
 ENV LIBVA_DRIVERS_PATH=/usr/lib/dri
 ENV MESA_LOADER_DRIVER_OVERRIDE=crocus
-#ENV MESA_LOADER_DRIVER_OVERRIDE=nouveau
-ENV NVIDIA_VISIBLE_DEVICES=all
-ENV NVIDIA_DRIVER_CAPABILITIES=compute,video,utility
 
 ###############################################
 # Drop root — runtime user comes from --user
