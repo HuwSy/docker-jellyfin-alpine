@@ -16,10 +16,10 @@ Run the container, on older systems it may need --security-opt seccomp=unconfine
 ```
 docker run --name=jellyfin \
     --user 1002:1002 \
-    --group-add=$(cat /etc/group | grep -e video -e render | cut -d ":" -f 3)\
+    --cap-drop=ALL \
+    -p 8096:8096 \
     -v /home/jellyfin/config:/config \
     --mount type=bind,source=/media,target=/media,readonly \
+    --group-add=$(cat /etc/group | grep -e video -e render | cut -d ":" -f 3)\
     --device=/dev/dri:/dev/dri \
-    -p 8096:8096 \
-    --cap-drop=ALL \
     docker-jellyfin-alpine
