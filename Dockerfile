@@ -18,36 +18,17 @@ RUN mkdir -p /usr/share/jellyfin/web \
     jellyfin \
     jellyfin-web \
     jellyfin-ffmpeg \
-    intel-media-driver \
     libdrm \
-    libva \
-    libva-utils \
-    libva-intel-driver \
-    linux-firmware-i915 \
-    mesa \
-    mesa-dri-gallium \
-    mesa-va-gallium \
-    mesa-vdpau-gallium \
     tzdata \
     ca-certificates \
     && ln -s /usr/share/webapps/jellyfin-web /usr/lib/jellyfin/ \
-    && ln -s /usr/lib/jellyfin-ffmpeg/* /usr/bin/ \
-    && ln -s /usr/lib/dri /usr/lib/jellyfin-ffmpeg/ \
-    && ln -s /usr/lib/v* /usr/lib/jellyfin-ffmpeg/
+    && ln -s /usr/lib/jellyfin-ffmpeg/* /usr/bin/
 
 ###############################################
 # Create writable directories for ANY runtime user
 ###############################################
 RUN mkdir -p /config /cache && \
     chmod -R 0777 /config /cache
-
-###############################################
-# Hardware Acceleration Environment
-###############################################
-
-ENV LIBVA_DRIVER_NAME=iHD
-ENV LIBVA_DRIVERS_PATH=/usr/lib/dri
-ENV MESA_LOADER_DRIVER_OVERRIDE=crocus
 
 ###############################################
 # Drop root — runtime user comes from --user
