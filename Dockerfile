@@ -31,8 +31,8 @@ RUN mkdir -p /usr/share/jellyfin/web \
     tzdata \
     ca-certificates \
     && ln -s /usr/share/webapps/jellyfin-web /usr/lib/jellyfin/ \
-    && ln -s /usr/lib/dri /usr/lib/jellyfin-ffmpeg/lib/ \
-    && ln -s /usr/lib/v* /usr/lib/jellyfin-ffmpeg/lib/
+    && ln -s /usr/lib/dri /usr/lib/jellyfin-ffmpeg/ \
+    && ln -s /usr/lib/v* /usr/lib/jellyfin-ffmpeg/
 
 ###############################################
 # Create writable directories for ANY runtime user
