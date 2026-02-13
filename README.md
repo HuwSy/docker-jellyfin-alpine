@@ -16,10 +16,8 @@ Run the container, on older systems it may need --security-opt seccomp=unconfine
 ```
 docker run --name=jellyfin \
     --user 1002:1002 \
-    --restart=unless-stopped \
     --group-add=$(cat /etc/group | grep -e video -e render | cut -d ":" -f 3)\
     -v /home/jellyfin/config:/config \
-    -v /home/jellyfin/cache:/cache \
     --mount type=bind,source=/media/USB,target=/media/USB,readonly \
     --device=/dev/dri:/dev/dri \
     -p 8096:8096 \
