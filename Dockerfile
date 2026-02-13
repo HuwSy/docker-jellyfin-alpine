@@ -19,22 +19,18 @@ RUN mkdir -p /usr/share/jellyfin/web \
     jellyfin \
     jellyfin-web \
     jellyfin-ffmpeg \
-    ffmpeg \
     intel-media-driver \
     libdrm \
     libva \
     libva-utils \
-    libva-glx \
     libva-intel-driver \
     linux-firmware-i915 \
     mesa \
-    mesa-dri-galium \
-    mesa-va-galium \
+    mesa-dri-gallium \
+    mesa-va-gallium \
     mesa-vdpau-gallium \
     tzdata \
-    bash \
     ca-certificates \
-    pciutils \
     && cp -r /usr/share/webapps/jellyfin-web/* /usr/lib/jellyfin/jellyfin-web/ \
     && ln -s /usr/lib/dri /usr/lib/jellyfin-ffmpeg/lib/dri \
     && ln -s /usr/lib/va /usr/lib/jellyfin-ffmpeg/lib/va
