@@ -31,6 +31,7 @@ RUN mkdir -p /usr/share/jellyfin/web \
     tzdata \
     ca-certificates \
     && ln -s /usr/share/webapps/jellyfin-web /usr/lib/jellyfin/ \
+    && ln -s /usr/lib/jellyfin-ffmpeg/* /usr/bin/ \
     && ln -s /usr/lib/dri /usr/lib/jellyfin-ffmpeg/ \
     && ln -s /usr/lib/v* /usr/lib/jellyfin-ffmpeg/
 
