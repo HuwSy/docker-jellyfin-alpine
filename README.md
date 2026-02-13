@@ -7,7 +7,7 @@ docker build -t docker-jellyfin-alpine .
 
 Make the paths needed and permissions, assuming 1002 uid:gid but could be any
 ```
-mkdir -p /home/jellyfin/config /home/jellyfin/cache
+mkdir -p /home/jellyfin/config
 chown -R 1002:1002 /home/jellyfin
 chattr -R +C /home/jellyfin
 ```
@@ -18,7 +18,7 @@ docker run --name=jellyfin \
     --user 1002:1002 \
     --group-add=$(cat /etc/group | grep -e video -e render | cut -d ":" -f 3)\
     -v /home/jellyfin/config:/config \
-    --mount type=bind,source=/media/USB,target=/media/USB,readonly \
+    --mount type=bind,source=/media,target=/media,readonly \
     --device=/dev/dri:/dev/dri \
     -p 8096:8096 \
     --cap-drop=ALL \
