@@ -20,7 +20,7 @@ RUN mkdir -p /usr/share/jellyfin/web \
     jellyfin-web \
     jellyfin-ffmpeg \
     ffmpeg \
-    intel-vaapi-driver \
+    intel-media-driver \
     libdrm \
     libva \
     libva-utils \
