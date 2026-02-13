@@ -20,6 +20,11 @@ docker run --name=jellyfin \
     -p 8096:8096 \
     -v /home/jellyfin/config:/config \
     --mount type=bind,source=/media,target=/media,readonly \
-    --group-add=$(cat /etc/group | grep -e video -e render | cut -d ":" -f 3)\
-    --device=/dev/dri:/dev/dri \
     docker-jellyfin-alpine
+```
+
+Additional optional options
+```
+    --group-add=$(cat /etc/group | grep -e video -e render | cut -d ":" -f 3) \
+    --device=/dev/dri:/dev/dri \
+```
