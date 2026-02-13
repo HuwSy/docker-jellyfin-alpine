@@ -29,7 +29,7 @@ RUN mkdir -p /usr/share/jellyfin/web \
     bash \
     ca-certificates \
     pciutils \
-    && cp -r /usr/share/webapps/jellyfin-web/* /usr/lib/jellyfin/jellyfin-web/
+    && cp -r /usr/share/webapps/jellyfin-web/* /usr/lib/jellyfin/jellyfin-web/ \
     && ln -s /usr/lib/dri /usr/lib/jellyfin-ffmpeg/lib/dri \
     && ln -s /usr/lib/va /usr/lib/jellyfin-ffmpeg/lib/va
 
