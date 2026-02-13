@@ -32,8 +32,8 @@ RUN mkdir -p /usr/share/jellyfin/web \
 ###############################################
 # Create writable directories for ANY runtime user
 ###############################################
-RUN mkdir -p /config /cache /media && \
-    chmod -R 0777 /config /cache /media
+RUN mkdir -p /config /cache && \
+    chmod -R 0777 /config /cache
 
 ###############################################
 # Hardware Acceleration Environment
@@ -52,6 +52,6 @@ USER 65534:65534
 
 EXPOSE 8096 8920
 
-VOLUME /config /cache /media
+VOLUME /config /cache
 
 CMD ["jellyfin", "--datadir", "/config", "--cachedir", "/cache"]
