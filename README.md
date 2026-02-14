@@ -1,18 +1,22 @@
 # Simplest Jellyfin on Alpine I could muster
 
-Build
+## Build
 ```
 docker build -t docker-jellyfin-alpine .
 ```
 
-Make the paths needed and permissions, assuming 1002 uid:gid but could be any
+## Configuration
+
+Create the required paths and set permissions, assuming 1002 uid:gid (or any other user):
 ```
 mkdir -p /home/jellyfin/config
 chown -R 1002:1002 /home/jellyfin
 chattr -R +C /home/jellyfin
 ```
 
-Run the container, on older systems it may need --security-opt seccomp=unconfined 
+## Running the Container
+
+Run the container. On older systems, you may need to add `--security-opt seccomp=unconfined`:
 ```
 docker run --name=jellyfin \
     --user 1002:1002 \
@@ -23,8 +27,10 @@ docker run --name=jellyfin \
     docker-jellyfin-alpine
 ```
 
-Additional optional options, hardware acceleration under musl c has been impossible here
+## Hardware Acceleration (Optional)
+
+The following options can be added for hardware acceleration, though support is limited with musl libc:
 ```
     --group-add=$(cat /etc/group | grep -e video -e render | cut -d ":" -f 3) \
-    --device=/dev/dri:/dev/dri \
+    --device=/dev/dri:/dev/dri 
 ```
