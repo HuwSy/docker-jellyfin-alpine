@@ -18,7 +18,6 @@ RUN mkdir -p /usr/share/jellyfin/web \
     jellyfin \
     jellyfin-web \
     jellyfin-ffmpeg \
-    libdrm \
     tzdata \
     ca-certificates \
     && ln -s /usr/share/webapps/jellyfin-web /usr/lib/jellyfin/ \
