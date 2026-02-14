@@ -23,7 +23,7 @@ docker run --name=jellyfin \
     docker-jellyfin-alpine
 ```
 
-Additional optional options
+Additional optional options, hardware acceleration under musl c has been impossible here
 ```
     --group-add=$(cat /etc/group | grep -e video -e render | cut -d ":" -f 3) \
     --device=/dev/dri:/dev/dri \
