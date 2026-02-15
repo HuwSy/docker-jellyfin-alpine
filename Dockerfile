@@ -30,7 +30,8 @@ RUN apk update && apk add --no-cache \
     libvpl \
     libva \
     libva-utils \
-    pciutils
+    pciutils \
+    gcompat
 
 ###############################################
 # Create writable directories for ANY runtime user
