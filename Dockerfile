@@ -3,6 +3,11 @@
 ###############################################
 FROM alpine:edge
 
+ARG VAAPI_DRIVER=i965
+
+ENV LIBVA_DRIVER_NAME=${VAAPI_DRIVER}
+ENV LIBVA_DRIVERS_PATH=/usr/lib/dri
+
 # Enable all Edge repos
 RUN printf "%s\n" \
   "https://dl-cdn.alpinelinux.org/alpine/edge/main" \
