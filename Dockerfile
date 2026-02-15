@@ -26,7 +26,9 @@ RUN mkdir -p /usr/share/jellyfin/web \
 RUN apk update && apk add --no-cache \
     libva-intel-driver \
     intel-media-driver \
+    libdrm \
     libvpl \
+    libva \
     libva-utils \
     pciutils
 
