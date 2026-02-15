@@ -21,9 +21,10 @@ RUN mkdir -p /usr/share/jellyfin/web \
     libva-intel-driver \
     intel-media-driver \
     libvpl \
-    libva-utils \
     tzdata \
     ca-certificates \
+    libva-utils \
+    pciutils \
     && ln -s /usr/share/webapps/jellyfin-web /usr/lib/jellyfin/ \
     && ln -s /usr/lib/jellyfin-ffmpeg/* /usr/bin/
 
