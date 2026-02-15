@@ -18,15 +18,17 @@ RUN mkdir -p /usr/share/jellyfin/web \
     jellyfin \
     jellyfin-web \
     jellyfin-ffmpeg \
+    tzdata \
+    ca-certificates \
+    && ln -s /usr/share/webapps/jellyfin-web /usr/lib/jellyfin/ \
+    && ln -s /usr/lib/jellyfin-ffmpeg/* /usr/bin/
+
+RUN apk update && apk add --no-cache \
     libva-intel-driver \
     intel-media-driver \
     libvpl \
-    tzdata \
-    ca-certificates \
     libva-utils \
-    pciutils \
-    && ln -s /usr/share/webapps/jellyfin-web /usr/lib/jellyfin/ \
-    && ln -s /usr/lib/jellyfin-ffmpeg/* /usr/bin/
+    pciutils
 
 ###############################################
 # Create writable directories for ANY runtime user
