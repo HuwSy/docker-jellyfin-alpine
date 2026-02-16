@@ -22,6 +22,7 @@ docker run --name=jellyfin \
     --user 1002:1002 \
     --cap-drop=ALL \
     --read-only \
+    --tmpfs /tmp:rw,noexec,nosuid,size=64m \
     -p 8096:8096 \
     -v /home/jellyfin/config:/config \
     --mount type=bind,source=/media,target=/media,readonly \
