@@ -21,6 +21,5 @@ if [ -n "$RENDER_GID" ]; then
     adduser jellyfin hostrender 2>/dev/null || true
 fi
 
-# Run Jellyfin as the Jellyfin service user
-exec su -s /bin/sh jellyfin -c \
-    "jellyfin --datadir /config --cachedir /cache"
+# Drop privileges and run Jellyfin with CMD arguments
+exec su -s /bin/sh jellyfin -c "$@"
