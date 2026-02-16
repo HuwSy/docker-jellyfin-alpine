@@ -26,9 +26,6 @@ RUN mkdir -p /usr/share/jellyfin/web \
     && ln -s /usr/share/webapps/jellyfin-web /usr/lib/jellyfin/ \
     && ln -s /usr/lib/jellyfin-ffmpeg/* /usr/bin/
 
-ADD https://raw.githubusercontent.com/HuwSy/docker-jellyfin-alpine/refs/heads/main/scripts/start-jellyfin.sh /opt/start-jellyfin.sh
-RUN chmod 0755 /opt/start-jellyfin.sh
-
 RUN apk update && apk add --no-cache \
     libva-intel-driver \
     intel-media-driver \
@@ -54,5 +51,4 @@ EXPOSE 8096 8920
 
 VOLUME /config /cache
 
-ENTRYPOINT ["/opt/start-jellyfin.sh"]
 CMD ["jellyfin", "--datadir", "/config", "--cachedir", "/cache"]
