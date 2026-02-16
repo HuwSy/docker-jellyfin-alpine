@@ -5,6 +5,7 @@ FROM alpine:edge
 
 ENV LIBVA_DRIVER_NAME=i965
 ENV LIBVA_DRIVERS_PATH=/usr/lib/dri
+ENV LIBVA_DEVICE_GROUP=44
 
 # Enable all Edge repos
 RUN printf "%s\n" \
