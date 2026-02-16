@@ -12,11 +12,13 @@ fi
 
 # Create matching groups inside the container
 if [ -n "$VIDEO_GID" ]; then
+    echo "Video:$VIDEO_GID"
     addgroup -g "$VIDEO_GID" hostvideo
     adduser jellyfin hostvideo
 fi
 
 if [ -n "$RENDER_GID" ]; then
+    echo "Render:$RENDER_GID"
     addgroup -g "$RENDER_GID" hostrender
     adduser jellyfin hostrender
 fi
