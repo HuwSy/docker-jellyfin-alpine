@@ -54,5 +54,5 @@ EXPOSE 8096 8920
 
 VOLUME /config /cache
 
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["/opt/start-jellyfin.sh"]
 CMD ["jellyfin", "--datadir", "/config", "--cachedir", "/cache"]
