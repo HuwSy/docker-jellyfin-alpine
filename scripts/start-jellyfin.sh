@@ -22,4 +22,4 @@ if [ -n "$RENDER_GID" ]; then
 fi
 
 # Drop privileges and run Jellyfin with CMD arguments
-exec su -s /bin/sh jellyfin -c "$@"
+exec "$@"
