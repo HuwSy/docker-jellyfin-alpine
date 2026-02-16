@@ -31,7 +31,6 @@ docker run --name=jellyfin \
 
 The following options can be added for hardware acceleration, though support is limited with musl libc:
 ```
-    --group-add=$(cat /etc/group | grep -e video -e render | cut -d ":" -f 3) \
     --device=/dev/dri:/dev/dri \
     -e LIBVA_DRIVER_NAME=i965 \ #iHD
 ```
