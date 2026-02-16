@@ -26,10 +26,10 @@ RUN mkdir -p /usr/share/jellyfin/web \
     && ln -s /usr/share/webapps/jellyfin-web /usr/lib/jellyfin/ \
     && ln -s /usr/lib/jellyfin-ffmpeg/* /usr/bin/
 
-RUN addgroup -g 44 video || true \
- && addgroup -g 107 render || true \
- && adduser jellyfin video \
- && adduser jellyfin render
+RUN addgroup -g 44 hostvideo || true \
+ && addgroup -g 107 hostrender || true \
+ && adduser jellyfin hostvideo \
+ && adduser jellyfin hostrender
 
 RUN apk update && apk add --no-cache \
     libva-intel-driver \
