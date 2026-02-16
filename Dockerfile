@@ -45,8 +45,6 @@ RUN mkdir -p /config /cache && \
 ###############################################
 # Drop root — runtime user comes from --user
 ###############################################
-USER 65534:65534
-
 EXPOSE 8096 8920
 
 VOLUME /config /cache
