@@ -29,8 +29,9 @@ docker run --name=jellyfin \
 
 ## Hardware Acceleration (Optional)
 
-The following options can be added for hardware acceleration, though support is limited with musl libc:
+The following options can be added for hardware acceleration, though support is limited with musl libc and take care with device names some are card0 some may need iHD not i965 etc.:
 ```
-    --device=/dev/dri:/dev/dri \
-    -e LIBVA_DRIVER_NAME=i965 \ #iHD
+    --device=/dev/dri/renderD128:/dev/dri/renderD128 \
+    --group-add=$(stat -c %g /dev/dri/renderD128) \
+    -e LIBVA_DRIVER_NAME=i965 \
 ```
