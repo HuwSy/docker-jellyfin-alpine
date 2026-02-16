@@ -26,10 +26,8 @@ RUN mkdir -p /usr/share/jellyfin/web \
     && ln -s /usr/share/webapps/jellyfin-web /usr/lib/jellyfin/ \
     && ln -s /usr/lib/jellyfin-ffmpeg/* /usr/bin/
 
-RUN addgroup -g 44 hostvideo || true \
- && addgroup -g 107 hostrender || true \
- && adduser jellyfin hostvideo \
- && adduser jellyfin hostrender
+ADD https://raw.githubusercontent.com/HuwSy/docker-jellyfin-alpine/refs/heads/main/scripts/start-jellyfin.sh /opt/start-jellyfin.sh
+RUN chmod 0755 /opt/start-jellyfin.sh
 
 RUN apk update && apk add --no-cache \
     libva-intel-driver \
@@ -56,4 +54,4 @@ EXPOSE 8096 8920
 
 VOLUME /config /cache
 
-CMD ["jellyfin", "--datadir", "/config", "--cachedir", "/cache"]
+ENTRYPOINT ["/opt/start-jellyfin.sh"]
