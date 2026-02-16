@@ -12,13 +12,13 @@ fi
 
 # Create matching groups inside the container
 if [ -n "$VIDEO_GID" ]; then
-    addgroup -g "$VIDEO_GID" hostvideo 2>/dev/null || true
-    adduser jellyfin hostvideo 2>/dev/null || true
+    addgroup -g "$VIDEO_GID" hostvideo
+    adduser jellyfin hostvideo
 fi
 
 if [ -n "$RENDER_GID" ]; then
-    addgroup -g "$RENDER_GID" hostrender 2>/dev/null || true
-    adduser jellyfin hostrender 2>/dev/null || true
+    addgroup -g "$RENDER_GID" hostrender
+    adduser jellyfin hostrender
 fi
 
 # Drop privileges and run Jellyfin with CMD arguments
