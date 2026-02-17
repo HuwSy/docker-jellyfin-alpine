@@ -29,7 +29,6 @@
         "removexattr",
         "mknod",
         "mknodat",
-        "mprotect",
         "posix_fadvise",
         "posix_fallocate",
         "membarrier",
