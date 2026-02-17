@@ -77,14 +77,12 @@
         "setpriority",
         "getpriority",
         
-        "bpf",
         "fanotify_init",
         "kcmp",
-        "fsconfig", "fsmount", "fsopen", "fspick",
         "open_tree", "move_mount", "lookup_dcookie",
         "umount",
         "quotactl", "syslog",
-        "uselib", "modify_ldt", "process_madvise"
+        "uselib", "modify_ldt"
       ],
       "action": "SCMP_ACT_ERRNO"
     }
