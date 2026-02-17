@@ -77,25 +77,16 @@
         "setpriority",
         "getpriority",
         
-"bpf",
-
-"fanotify_init",
-
-"kcmp",
-
-"fsconfig", "fsmount", "fsopen", "fspick",
-
-"open_tree", "move_mount", "name_to_handle_at", "lookup_dcookie",
-
-"mount", "umount", "umount2",
-
-"perf_event_open",
-
-"sethostname", "setdomainname", "setns",
-
-"quotactl", "syslog",
-
-"uselib", "modify_ldt", "process_madvise", "process_vm_readv", "process_vm_writev"
+        "bpf",
+        "fanotify_init",
+        "kcmp",
+        "fsconfig", "fsmount", "fsopen", "fspick",
+        "open_tree", "move_mount", "name_to_handle_at", "lookup_dcookie",
+        "mount", "umount", "umount2",
+        "perf_event_open",
+        "sethostname", "setdomainname", "setns",
+        "quotactl", "syslog",
+        "uselib", "modify_ldt", "process_madvise", "process_vm_readv", "process_vm_writev"
       ],
       "action": "SCMP_ACT_ERRNO"
     }
