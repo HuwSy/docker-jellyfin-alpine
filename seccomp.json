@@ -40,7 +40,6 @@
         "chroot",
         "ioprio_set",
         "ioprio_get",
-        "setrlimit",
         "open_by_handle_at",
         "name_to_handle_at",
         "get_mempolicy",
@@ -75,10 +74,6 @@
         "shmat",
         "shmdt",
         "shmctl",
-        "sched_setparam",
-        "sched_setscheduler",
-        "sched_setaffinity",
-        "sched_getaffinity",
         "setpriority",
         "getpriority"
       ],
