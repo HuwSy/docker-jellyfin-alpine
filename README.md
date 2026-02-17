@@ -16,7 +16,7 @@ chattr -R +C /home/jellyfin
 
 ## Running the Container
 
-Run the container. On older systems, you may need to add `--security-opt seccomp=unconfined`:
+Run the container. On older systems, you may need to add `--security-opt seccomp=unconfined` or use the seccomp.json profile in this repo for slight compatible filtering:
 ```
 docker run --name=jellyfin \
     --user 1002:1002 \
