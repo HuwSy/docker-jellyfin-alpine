@@ -1,0 +1,27 @@
+{
+  "defaultAction": "SCMP_ACT_ALLOW",
+  "syscalls": [
+    {
+      "names": [
+        "ptrace",
+        "kexec_load",
+        "kexec_file_load",
+        "reboot",
+        "swapon",
+        "swapoff",
+        "init_module",
+        "finit_module",
+        "delete_module",
+        "acct",
+        "perf_event_open",
+        "mbind",
+        "set_mempolicy",
+        "move_pages",
+        "sysctl",
+        "iopl",
+        "ioperm"
+      ],
+      "action": "SCMP_ACT_ERRNO"
+    }
+  ]
+}
