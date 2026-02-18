@@ -58,7 +58,10 @@
         "perf_event_open",
         "sethostname", "setdomainname", "setns",
         "quotactl", "syslog",
-        "uselib", "modify_ldt"
+        "uselib", "modify_ldt",
+
+        "unshare", "mount", "umount", "umount2", "pivot_root", "open_tree", "move_mount", "lookup_dcookie", "open_by_handle_at", "name_to_handle_at", "seccomp", "personality",
+        "semctl", "semget", "semop", "shmget", "shmat", "shmdt", "shmctl"
       ],
       "action": "SCMP_ACT_ERRNO"
     }
