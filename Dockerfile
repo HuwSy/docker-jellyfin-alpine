@@ -1,7 +1,7 @@
 ###############################################
 # Stage 1 — Jellyfin (Alpine Edge)
 ###############################################
-FROM alpine:edge
+FROM alpine:latest
 
 ARG APP_VERSION=0.0.2
 
