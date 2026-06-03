@@ -2,7 +2,7 @@
 
 ## Build
 ```
-docker build -t docker-jellyfin-alpine .
+docker build --pull --no-cache -t docker-jellyfin-alpine .
 ```
 
 ## Configuration
