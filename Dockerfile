@@ -3,7 +3,7 @@
 ###############################################
 FROM alpine:edge
 
-ARG APP_VERSION=0.0.2
+ARG APP_VERSION=0.0.3
 
 ENV LIBVA_DRIVER_NAME=i965
 ENV LIBVA_DRIVERS_PATH=/usr/lib/dri
@@ -15,6 +15,8 @@ RUN printf "%s\n" \
   "https://dl-cdn.alpinelinux.org/alpine/edge/community" \
   "https://dl-cdn.alpinelinux.org/alpine/edge/testing" \
   > /etc/apk/repositories
+
+RUN apk update && apk upgrade --available --no-cache
 
 # Install Jellyfin + web + hardware support 
 # /usr/share/jellyfin/web is to prevent jellyfin post install fail
