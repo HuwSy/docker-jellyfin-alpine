@@ -1,6 +1,6 @@
 FROM alpine:edge
 
-ARG APP_VERSION=0.0.3
+ARG APP_VERSION=0.0.4
 
 ENV LIBVA_DRIVER_NAME=i965
 ENV LIBVA_DRIVERS_PATH=/usr/lib/dri
@@ -28,14 +28,16 @@ RUN mkdir -p /usr/share/jellyfin/web \
     && ln -s /usr/share/webapps/jellyfin-web /usr/lib/jellyfin/ \
     && ln -s /usr/lib/jellyfin-ffmpeg/* /usr/bin/ \
     && apk add --no-cache \
-    libva-intel-driver \
-    intel-media-driver \
     libdrm \
-    libvpl \
     libva \
     libva-utils \
     pciutils \
-    gcompat
+    gcompat \
+    && (apk add --no-cache \
+    libva-intel-driver \
+    intel-media-driver \
+    libvpl \
+    onevpl-intel-gpu || true)
 
 RUN mkdir -p /config /cache && \
     chmod -R 0777 /config /cache
