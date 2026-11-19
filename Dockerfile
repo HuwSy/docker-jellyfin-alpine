@@ -37,6 +37,8 @@ RUN mkdir -p /usr/share/jellyfin/web \
     gcompat \
     vulkan-loader \
     vulkan-tools \
+    fontconfig \
+    font-ttf \
     && (apk add --no-cache $(apk search -q 'mesa-vulkan-*') || true) \
     && (apk add --no-cache libva-intel-driver intel-media-driver libvpl onevpl-intel-gpu mesa-va-gallium || true) \
     && rm -rf /var/cache/apk/*
