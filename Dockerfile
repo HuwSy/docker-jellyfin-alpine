@@ -7,6 +7,7 @@ RUN printf "%s\n" \
   "https://dl-cdn.alpinelinux.org/alpine/edge/testing" \
   > /etc/apk/repositories \
   && apk update \
+  && chmod 700 /etc/ssl/private \
   && apk upgrade --available --no-cache
 
 ARG APP_VERSION=0.0.5
